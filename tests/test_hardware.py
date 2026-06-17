@@ -1,5 +1,5 @@
 import pytest
-from uais_core.hardware import HardwareProfile
+from essence.core.hardware import HardwareProfile
 
 def test_hardware_profile_clamping():
     hw = HardwareProfile(
