@@ -1,5 +1,5 @@
-import os
 from __future__ import annotations
+import os
 import json
 import threading
 import time
@@ -33,7 +33,6 @@ class WorkflowCompressor:
             self._path.write_text(json.dumps({k: _dc.asdict(v) for k, v in self._patterns.items()}, indent=2), encoding="utf-8")
         except Exception: pass
     def record(self, steps: list[Any], arch_id: str = "") -> str | None:
-        import os
         if len(steps) < 2: return None
         seq = [f"{s.tool}:{(s.action.split()[0].lower() if s.action else 'do')}" for s in steps]
         data = "|".join(seq) + (f"|{arch_id}" if arch_id else "")
